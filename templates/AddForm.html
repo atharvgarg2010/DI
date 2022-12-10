@@ -1,0 +1,69 @@
+{% extends "Navbar.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Add Your Blog</h1>
+                            <span class="subheading">Have a idea ! Show To The World</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Whoever is happy will make others happy too</p>
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <form action="/otp"  method="post" name="contactForm" data-sb-form-api-token="API_TOKEN">
+                                <div class="form-floating">
+                                    <input class="form-control" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                    <label for="name">Name</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" name="phone" type="number" placeholder="Enter your Phone..." data-sb-validations="required,email" />
+                                    <label for="phone">Phone Number</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An phone is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Phone is not valid.</div>
+                                
+                                <input class="btn btn-primary text-uppercase" id="submitButton2" onclick="sendEmail()" type="submit"></input>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src=
+        "https://smtpjs.com/v3/smtp.js">
+      </script>
+     
+      <script type="text/javascript">
+        function sendEmail() {
+          Email.send({
+            Host: "smtp.gmail.com",
+            Username: "gargatharv2010@gmail.com",
+            Password: "awsgargatharv2010@gmail.com",
+            To: 'gargatharv2010@gmail.com',
+            From: "gargatharv2010@gmail.com",
+            Subject: "Sending Email using javascript",
+            Body: "Well that was easy!!",
+          }).then(function (message) {
+              console.log("mail sent successfully")
+            });
+            console.log("S");
+        }
+      </script>
+        {%endblock%}

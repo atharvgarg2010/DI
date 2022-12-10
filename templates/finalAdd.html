@@ -1,0 +1,81 @@
+{% extends "Navbar.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Add Your Blog</h1>
+                            <span class="subheading">Have a idea ! Show To The World</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Whoever is happy will make others happy too</p>
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <form action="/resultpost" method="post" name="OtpForm" data-sb-form-api-token="API_TOKEN">
+                                <div class="form-floating">
+                                    <input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." data-sb-validations="required" />
+                                    <label for="name">Title</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="subtitle" name="subtitle" type="text" placeholder="Enter your Subtitle..." data-sb-validations="required" />
+                                    <label for="name">Subtitle</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A Subtitle is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="Fsubheading" name="Fsubheading" type="text" placeholder="Enter your Subtitle..." data-sb-validations="required" />
+                                    <label for="name">First Subheading</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A Subtitle is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="Fdesc" name="Fdescription" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="name">Description</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="Ssubheading" name="Ssubheading" type="text" placeholder="Enter your Subtitle..." data-sb-validations="required" />
+                                    <label for="name">Second Subheading</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A Subtitle is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="Fdesc" name="Sdescription" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="name">Description</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="Tsubheading" name="Tsubheading" type="text" placeholder="Enter your Subtitle..." data-sb-validations="required" />
+                                    <label for="name">Third Subheading</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A Subtitle is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="Fdesc" name="Tdescription" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="name">Description</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
+                                </div>
+
+                                <br>
+                                <input class="btn btn-primary text-uppercase" id="submitButton2" type="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        {%endblock%}
