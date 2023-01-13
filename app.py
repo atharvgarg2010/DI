@@ -3,14 +3,14 @@ import mysql.connector as py
 
 app = Flask(__name__)
 mydb = py.connect(
-    host="localhost",
-    user="root",
-    passwd="AWSgargatharv2010@gmail.com",
-    database = "di",
+    host="sql7.freesqldatabase.com",
+    user="sql7588847",
+    passwd="2KpRYDtmVX",
+    database = "sql7588847",
 )
 mycursor = mydb.cursor()
 def insertcontact (name , email , phone , message):
-    print(name , email , phone , message)
+    # print(name , email , phone , message)
     dataa= (
         name , email , phone , message
     )
@@ -21,7 +21,7 @@ def fetchall():
     contactdetlist.clear()
     mycursor.execute("SELECT * FROM contact")
     myresult = mycursor.fetchall()
-    print(myresult)
+    # print(myresult)
     contactdetlist.append(myresult)
 @app.route("/")
 def home():
@@ -52,26 +52,25 @@ def addform():
 @app.route('/result',methods=['post', 'GET'])
 def result():
     output = request.form.to_dict()
-    print(",   ",request.form.to_dict())
+    # print(",   ",request.form.to_dict())
     # name = output["name"]
     insertcontact(output["name"],output["email"],output["phone"],output["message"])
-    insertcontact
     return render_template("Thanku.html")
 addphone = []
 addname = []
 @app.route('/otp',methods=['post', 'GET'])
 def otp():
     output = request.form.to_dict()
-    print()
+    # print()
     
     import pywhatkit
     import datetime
     a = datetime.datetime.now()
-    print(a)
+    # print(a)
     import random
     OTP1 = random.randint(0,9999)
     message =  f'HI {output["name"]}, \nyour otp is {OTP1} '
-    print(message)
+    # print(message)
 
 
     # name = output["name"]
@@ -95,7 +94,7 @@ def resultpost():
     import datetime
     import secrets
     keykey = secrets.token_hex(2)
-    print()
+    # print()
     data1 = (title,subtitle,output["Fsubheading"],output["Fdescription"],output["Ssubheading"],output["Sdescription"],output["Tsubheading"],output["Tdescription"],addphone[0],datetime.date.today(),keykey,addname[0])
     mycursor.execute('INSERT INTO posts (title,subtitle,Ftitle,Fdesc,Ssubheading,Sdesc,Tsubheading,Tdesc,userphone,dateT,keyauto,nameAuthor) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',data1)
     mydb.commit()
@@ -103,5 +102,17 @@ def resultpost():
     addname.clear()
     return render_template('Thanku.html')
 
+@app.route('/searchresult',methods=['post', 'GET'])
+def searchresult():
+    output = request.form.to_dict()
+    print(output)
+    command = f"SELECT * FROM posts WHERE title LIKE %s"
+    mycursor.execute(command,[output['searchh']])
+    myresult = mycursor.fetchall()
+    print(myresult)
+    # name = output["name"]
+    # insertcontact(output["name"],output["email"],output["phone"],output["message"])
+    # return render_template("Thanku.html")
+    return render_template('index.html',posts = myresult)
 app.run(debug=True)
 

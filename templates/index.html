@@ -6,7 +6,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Digital Insight</h1>
+                            <h1>Digital Insightt</h1>
                             <span class="subheading">An awesome Blog By Codeangers</span>
                         </div>
                     </div>
@@ -18,7 +18,9 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
-                    
+                    {% if posts == []%}
+                        <p>No Blog Yet</p>
+                    {% endif %}
                     {% for post in posts %}
            
                     <div class="post-preview">
@@ -32,11 +34,14 @@
                             on {{post[9]}}
                         </p>
                     </div>
+                    <!-- <hr> -->
+                    <hr class="my-2" />
+
                     {% endfor %}
                     <!-- Divider-->
-                    <hr class="my-4" />
+                    <!-- <hr class="my-4" /> -->
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <!-- <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> -->
                 </div>
             </div>
         </div>
