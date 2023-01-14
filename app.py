@@ -3,10 +3,11 @@ import mysql.connector as py
 
 app = Flask(__name__)
 mydb = py.connect(
-    host="sql7.freesqldatabase.com",
-    user="sql7588847",
-    passwd="2KpRYDtmVX",
-    database = "sql7588847",
+    # host="sql7.freesqldatabase.com",
+    host="di.c04skukvkgsx.eu-west-2.rds.amazonaws.com",
+    user="admin",
+    passwd="coding123-",
+    database = "di",
 )
 mycursor = mydb.cursor()
 def insertcontact (name , email , phone , message):
@@ -44,7 +45,7 @@ def post(post_key):
     mycursor.execute(f"select * from posts where keyauto = '{post_key}'")
     myresult =  mycursor.fetchall()
     
-    return render_template('post.html',post = myresult[0])
+    return render_template('post.html',post = myresult[0], datee = myresult[0][9])
 @app.route("/addblog")
 def addform():
     return render_template('AddForm.html')
@@ -95,7 +96,9 @@ def resultpost():
     import secrets
     keykey = secrets.token_hex(2)
     # print()
-    data1 = (title,subtitle,output["Fsubheading"],output["Fdescription"],output["Ssubheading"],output["Sdescription"],output["Tsubheading"],output["Tdescription"],addphone[0],datetime.date.today(),keykey,addname[0])
+    x = datetime.datetime.now()
+    datee = f'{x.strftime("%d")}-{x.strftime("%B")}-{x.strftime("%Y")}, {x.strftime("%a")}'
+    data1 = (title,subtitle,output["Fsubheading"],output["Fdescription"],output["Ssubheading"],output["Sdescription"],output["Tsubheading"],output["Tdescription"],addphone[0],datee,keykey,addname[0])
     mycursor.execute('INSERT INTO posts (title,subtitle,Ftitle,Fdesc,Ssubheading,Sdesc,Tsubheading,Tdesc,userphone,dateT,keyauto,nameAuthor) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',data1)
     mydb.commit()
     addphone.clear()

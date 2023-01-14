@@ -1,14 +1,15 @@
-import requests
+import kivy
+# kivy.require('2.1.0') # replace with your current kivy version !
 
-url = "https://sms77io.p.rapidapi.com/analytics"
+from kivy.app import App
+from kivy.uix.label import Label
 
-querystring = {"p":"<REQUIRED>","label":"all","subaccounts":"only_main"}
 
-headers = {
-	"X-RapidAPI-Key": "211318f093msh161822ab1862c4cp16b818jsn2fe3668647d4",
-	"X-RapidAPI-Host": "sms77io.p.rapidapi.com"
-}
+class MyApp(App):
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+    def build(self):
+        return Label(text='Hello world')
 
-# print(response.text)
+
+if __name__ == '__main__':
+    MyApp().run()
