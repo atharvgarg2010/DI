@@ -64,7 +64,6 @@ def otp():
     output = request.form.to_dict()
     # print()
     
-    import pywhatkit
     import datetime
     a = datetime.datetime.now()
     # print(a)
@@ -117,5 +116,5 @@ def searchresult():
     # insertcontact(output["name"],output["email"],output["phone"],output["message"])
     # return render_template("Thanku.html")
     return render_template('index.html',posts = myresult)
-app.run(debug=True)
+app.run(port=5000,host="0.0.0.0",debug=True)
 
