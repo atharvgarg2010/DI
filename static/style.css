@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;800&display=swap');
-.navbar{
-    
-}
+
 
 .search-box{
     width: fit-content;
@@ -181,4 +179,9 @@
   .td {
     display: table-cell;
     vertical-align: middle;
+  }
+  @media only screen and (min-width: 600px) {
+    .navbar {
+      background: #ffffff57;
+    }
   }
